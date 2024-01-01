@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+    background-color: darkgray;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin: 50px; */
+}
+
+.buttons button {
+    background: #333;
+    color: #fff;
+    margin: 20px;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 24px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+}
+
+.buttons button:hover {
+    background: #888;
+}
+
+#notification {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    overflow: hidden;
+    padding: 20px; 
+}
+
+.toast {
+    width: 400px;
+    height: 100px;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    font-size: 22px;
+    position: relative;
+    transform: translateX(100%);
+    animation: moveleft 0.5s linear forwards;
+}
+
+
+@keyframes moveleft {
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+.toast i {
+    font-size: 24px;
+    color: green;
+    margin: 10px;
+}
+
+.toast.error i {
+    color: red;
+}
+
+.toast.invalid i {
+    color: orange;
+}
+
+.toast::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: green;
+    width: 100%;
+    height: 3px;
+    animation: anim 5s linear forwards;
+}
+
+@keyframes anim {
+    100% {
+        width: 0;
+    }
+}
+
+.toast.error::after {
+    background: red;
+}
+.toast.invalid::after {
+    background: orange;
+}
